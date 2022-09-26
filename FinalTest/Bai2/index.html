@@ -1,0 +1,33 @@
+// Viết một function có tên numberOneTriangle(). Hàm có tham số truyền vào là một số nguyên trong khoảng (1-10) có tác dụng in ra hình tam giác.
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <html>
+        <meta charset="UTF-16">
+        <title>Bài 2</title>
+        <script>
+            function numberOneTriangle() {
+                var n = document.getElementById("numberId").value;
+                n = parseFloat(n);
+
+                if (n < 1 || n > 10) return alert("Nhập n trong khoảng 1-10!");
+                
+                for(var i = 0; i < n; i++) {
+                    for (var j = 1; j <= i; j++) {
+                        document.writeln("*");
+                    }
+                    document.writeln("</br>");
+                }
+            }
+        </script>
+    </html>
+
+
+    <body>
+        <input type="text" id="numberId" placeholder="Nhập n">
+        <button onclick="numberOneTriangle()" >VẼ TAM GIÁC</button>
+
+    </body>
+
+</html>

@@ -1,0 +1,119 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #bfc8e5;
+  position: relative;
+}
+.content {
+  width: 80vw;
+  height: 70vh;
+  background-color: white;
+  border: 0.5px solid grey;
+  border-radius: 16px;
+  margin: 100px auto;
+}
+
+.header {
+  margin: 20px 40px 0 40px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.search {
+  position: relative;
+}
+
+.search .search-place {
+  width: 350px;
+  height: 40px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+}
+.search-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.nav .subnav {
+  display: flex;
+}
+
+.nav .subnav li {
+  list-style-type: none;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 24px;
+  padding: 15px;
+}
+
+.nav .subnav a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav .subnav li:hover {
+  background-color: #bfc8e5;
+  border-radius: 10px;
+}
+
+/* USER-LIST */
+.user_list {
+  margin: 40px 8px 0 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 180px 180px;
+  grid-gap: 10px;
+}
+
+.user_list .users {
+  background-color: rgb(247, 244, 244);
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 30px;
+  display: flex;
+}
+
+.user_list .infor_user {
+  padding-left: 10px;
+}
+
+.user_list .infor_user .name_user {
+  font-size: 25px;
+  font-weight: 550;
+}
+.user_list .infor_user .address_user {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.user_list .infor_user .hobby_user {
+  margin-top: 20px;
+  font-size: 15px;
+  display: flex;
+}
+
+.user_list li {
+  list-style-type: none;
+  padding: 5px;
+  border: 0.5px solid #bfc8e5;
+  border-radius: 10px;
+  margin: 0 2px;
+  color: #516fd4;
+  line-height: 18px;
+}
+
+.user_list li:hover {
+  border: 0.8px solid #94a5db;
+  color: #3e63dd;
+  background-color: #bfc8e5;
+}

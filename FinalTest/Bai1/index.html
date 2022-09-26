@@ -1,0 +1,44 @@
+// Tạo một ứng dụng web, cho phép nhập vào 2 số a và b. Hiển thị tất cả các số nguyên tố trong khoảng a và b.  Nhập trên HTML
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Bài 1</title>
+        <script>
+            function checkPrime() {
+
+                var a = document.getElementById("aID").value;
+                var b = document.getElementById("bID").value;
+
+                a = parseFloat(a);
+                b = parseFloat(b);
+
+                if(a >= b) return alert("Nhập sai! Nhập a < b");
+
+                var flag = true;
+                for (i = a; i<b; ++i){
+                    flag = 1;
+                    for (j=2; j <= i/2; ++j){
+                        if (i % j == 0){
+                            flag = 0;
+                            break;
+                        }
+                    }
+                    if (flag == 1) {
+                        alert(i);
+                    }
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <input type="text" placeholder="Nhập a" id="aID">
+        <input type="text" placeholder="Nhập b" id="bID">
+        <button onclick="checkPrime()">Kiểm tra</button>
+    </body>
+
+</html>
