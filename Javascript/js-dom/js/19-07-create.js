@@ -26,6 +26,11 @@ function renderTodoList(todoList, ulElementId) {
     { id: 2, title: 'Learn ReactJS' },
     { id: 3, title: 'Learn NextJS' },
   ];
-
   renderTodoList(todoList1, 'todoList');
+
+  const todoList2 = [
+    { id: 1, title: 'Learn English' },
+    { id: 2, title: 'Learn Korean' },
+  ];
+  renderTodoList(todoList2, 'todoList');
 })();
