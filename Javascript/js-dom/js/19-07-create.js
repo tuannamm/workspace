@@ -5,8 +5,13 @@ function renderTodoList(ulElement) {
     { id: 3, title: 'Learn NextJS' },
   ];
 
-  const ulElement = document.getElementById('todoList');
+  const ulElement = document.getElementById(ulElement);
   if (ulElement) {
+    for (let i = 0; i < todoList.length; i++) {
+      const liElement = document.createElement('li');
+      liElement.textContent = todoList[i].title;
+      ulElement.appendChild(liElement);
+    }
   }
 }
 
