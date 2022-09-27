@@ -10,6 +10,10 @@ function createTodoElement(todo) {
 
 function renderTodoList(todoList, ulElementId) {
   if (!Array.isArray(todoList) || todoList.length === 0) return;
+
+  // find ulElement
+  // loop through todoList
+  // each todo --> create li element --> append to ul
   const ulElement = document.getElementById(ulElementId);
 
   if (ulElement) {
