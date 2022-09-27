@@ -10,11 +10,12 @@ function renderTodoList(ulElement) {
     for (let i = 0; i < todoList.length; i++) {
       const liElement = document.createElement('li');
       liElement.textContent = todoList[i].title;
+      liElement.dataset = todoList[i].id;
       ulElement.appendChild(liElement);
     }
   }
 }
 
 (() => {
-  renderTodoList();
+  renderTodoList('todoList');
 })();
