@@ -9,6 +9,7 @@ function createTodoElement(todo) {
 }
 
 function renderTodoList(todoList, ulElementId) {
+  if (!Array.isArray(todoList) || todoList.length === 0) return;
   const ulElement = document.getElementById(ulElementId);
 
   if (ulElement) {
