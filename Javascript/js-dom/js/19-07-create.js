@@ -6,16 +6,21 @@ function renderTodoList(ulElement) {
   ];
 
   const ulElement = document.getElementById(ulElement);
+
   if (ulElement) {
     for (let i = 0; i < todoList.length; i++) {
       const liElement = document.createElement('li');
+
       liElement.textContent = todoList[i].title;
+
       liElement.dataset = todoList[i].id;
+
       ulElement.appendChild(liElement);
     }
   }
 }
 
+// main
 (() => {
   renderTodoList('todoList');
 })();
