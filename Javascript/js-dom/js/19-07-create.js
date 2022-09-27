@@ -2,25 +2,18 @@ function createTodoElement(todo) {
   if (!todo) return null;
 
   const liElement = document.createElement('li');
+  liElement.textContent = todo.title;
+  liElement.dataset.id = todo.id;
+
+  return liElement;
 }
 
-function renderTodoList(ulElementId) {
-  const todoList = [
-    { id: 1, title: 'Learn Javascript' },
-    { id: 2, title: 'Learn ReactJS' },
-    { id: 3, title: 'Learn NextJS' },
-  ];
-
+function renderTodoList(todoList, ulElementId) {
   const ulElement = document.getElementById(ulElementId);
 
   if (ulElement) {
     for (let i = 0; i < todoList.length; i++) {
-      const liElement = document.createElement('li');
-
-      liElement.textContent = todoList[i].title;
-
-      liElement.dataset = todoList[i].id;
-
+      const liElement = createTodoElement(todoList[i]);
       ulElement.appendChild(liElement);
     }
   }
@@ -28,5 +21,11 @@ function renderTodoList(ulElementId) {
 
 // main
 (() => {
-  renderTodoList('todoList');
+  const todoList1 = [
+    { id: 1, title: 'Learn Javascript' },
+    { id: 2, title: 'Learn ReactJS' },
+    { id: 3, title: 'Learn NextJS' },
+  ];
+
+  renderTodoList(todoList1, 'todoList');
 })();
