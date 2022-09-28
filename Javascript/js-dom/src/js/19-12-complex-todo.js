@@ -6,9 +6,14 @@ const createTodoList = (todo) => {
   if (!todoTemplate) return;
 
   // clone template
-  const liElementList = todoTemplate.content.firstElementChild.cloneNode(true);
+  const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+  todoElement.dataset.id = todo.id;
 
   // find
+  const titleElement = todoElement.querySelector('.todo__title');
+  if (titleElement) titleElement.textContent = todo.title;
+
+  return titleElement;
 };
 
 const renderTodoList = (todoList, ulElement) => {
