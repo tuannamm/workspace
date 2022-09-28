@@ -7,7 +7,7 @@ const createTodoElement = (todo) => {
 
   // clone li element
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
-  todoElement.dataset.it = todo.id;
+  todoElement.dataset.id = todo.id;
 
   // update content where needed
   const titleElement = todoElement.querySelector('.todo__title');
