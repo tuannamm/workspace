@@ -1,5 +1,8 @@
 const createTodoList = (todo) => {
   if (!todo) return;
+
+  // find template
+  const todoTemplate = document.getElementById('todoTemplate');
 };
 
 const renderTodoList = (todoList, ulElement) => {
@@ -10,6 +13,7 @@ const renderTodoList = (todoList, ulElement) => {
 
   for (let i = 0; i < todoList.length; i++) {
     const liElement = createTodoList(todoList[i]);
+    ulListElement.appendChild(liElement);
   }
 };
 
