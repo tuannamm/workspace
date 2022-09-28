@@ -1,29 +1,27 @@
-function createTodoElement(todo) {
-  if (!todo) return null;
+const createTodoElement = (todo) => {
+  if (!todo) return;
 
   const liElement = document.createElement('li');
-  liElement.textContent = todo.title;
-  liElement.dataset.id = todo.id;
+  liElement.innerText = todo.title;
+  liElement.dataset = todo.id;
 
   return liElement;
-}
+};
 
-function renderTodoList(todoList, ulElementId) {
-  if (!Array.isArray(todoList) || todoList.length === 0) return;
+const renderTodoList = (todoList, ulElement) => {
+  if (!Array.isArray(todoList)) return;
 
-  // find ulElement
-  // loop through todoList
-  // each todo --> create li element --> append to ul
-  const ulElement = document.getElementById(ulElementId);
+  const ulElement = document.getElementById(ulElement);
 
   if (ulElement) {
     for (let i = 0; i < todoList.length; i++) {
       const liElement = createTodoElement(todoList[i]);
       ulElement.appendChild(liElement);
     }
-  }
-}
 
+    return ulElement;
+  }
+};
 // main
 (() => {
   const todoList = [
