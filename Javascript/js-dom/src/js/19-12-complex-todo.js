@@ -17,9 +17,10 @@ const createTodoElement = (todo) => {
 };
 
 const renderTodoList = (todoList, ulElement) => {
-  if (!Array.isArray(todoList)) return;
+  if (!Array.isArray(todoList) || todoList.length === 0) return;
 
   const ulElement = document.getElementById(ulElement);
+  if (!ulElement) return;
 
   if (ulElement) {
     for (let i = 0; i < todoList.length; i++) {
