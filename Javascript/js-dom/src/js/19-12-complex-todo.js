@@ -6,15 +6,14 @@ const createTodoElement = (todo) => {
   if (!todoTemplate) return null;
 
   // clone li element
-  const createTodoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+  const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+  todoElement.dataset.it = todo.id;
 
   // update content where needed
+  const titleElement = todoElement.querySelector('.todo__title');
+  if (titleElement) titleElement.textContent = todo.title;
 
-  const liElement = document.createElement('li');
-  liElement.innerText = todo.title;
-  liElement.dataset = todo.id;
-
-  return liElement;
+  return todoElement;
 };
 
 const renderTodoList = (todoList, ulElement) => {
