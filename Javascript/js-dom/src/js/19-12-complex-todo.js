@@ -3,9 +3,9 @@ const createTodoList = (todo) => {
 
   // find template
   const todoTemplate = document.getElementById('todoTemplate');
-  if (!todoTemplate) return;
+  if (!todoTemplate) return null;
 
-  // clone template
+  // clone li element
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
   todoElement.dataset.id = todo.id;
 
