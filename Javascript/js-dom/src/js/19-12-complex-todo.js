@@ -30,6 +30,7 @@ const renderTodoList = (todoList, ulElement) => {
     return ulElement;
   }
 };
+
 // main
 (() => {
   const todoList = [
