@@ -1,6 +1,15 @@
 const createTodoElement = (todo) => {
   if (!todo) return;
 
+  // find template
+  const todoTemplate = document.getElementById('todoTemplate');
+  if (!todoTemplate) return null;
+
+  // clone li element
+  const createTodoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+
+  // update content where needed
+
   const liElement = document.createElement('li');
   liElement.innerText = todo.title;
   liElement.dataset = todo.id;
