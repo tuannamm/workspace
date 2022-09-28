@@ -22,13 +22,9 @@ const renderTodoList = (todoList, ulElement) => {
   const ulElement = document.getElementById(ulElement);
   if (!ulElement) return;
 
-  if (ulElement) {
-    for (let i = 0; i < todoList.length; i++) {
-      const liElement = createTodoElement(todoList[i]);
-      ulElement.appendChild(liElement);
-    }
-
-    return ulElement;
+  for (let i = 0; i < todoList.length; i++) {
+    const liElement = createTodoElement(todoList[i]);
+    ulElement.appendChild(liElement);
   }
 };
 
