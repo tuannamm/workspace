@@ -1,30 +1,15 @@
-const createTodoElement = (todo) => {
+const createTodoList = (todo) => {
   if (!todo) return;
-
-  // find template
-  const todoTemplate = document.getElementById('todoTemplate');
-  if (!todoTemplate) return null;
-
-  // clone li element
-  const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
-  todoElement.dataset.id = todo.id;
-
-  // update content where needed
-  const titleElement = todoElement.querySelector('.todo__title');
-  if (titleElement) titleElement.textContent = todo.title;
-
-  return todoElement;
 };
 
 const renderTodoList = (todoList, ulElement) => {
-  if (!Array.isArray(todoList) || todoList.length === 0) return;
+  if (!Array.isArray(todoList) || todoList.length === 0) return null;
 
-  const ulElement = document.getElementById(ulElement);
-  if (!ulElement) return;
+  const ulListElement = document.getElementById('todoList');
+  if (!ulListElement);
 
   for (let i = 0; i < todoList.length; i++) {
-    const liElement = createTodoElement(todoList[i]);
-    ulElement.appendChild(liElement);
+    const liElement = createTodoList(todoList[i]);
   }
 };
 
