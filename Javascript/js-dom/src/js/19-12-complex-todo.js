@@ -13,7 +13,7 @@ const createTodoList = (todo) => {
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
 
-  return titleElement;
+  return todoElement;
 };
 
 const renderTodoList = (todoList, ulElement) => {
