@@ -28,6 +28,10 @@ const renderTodoList = (todoList, ulElement) => {
   }
 };
 
+const getTodoList = () => {
+  const todoList = JSON.parse(localStorage.getItem('todo_list'));
+};
+
 // main
 (() => {
   const todoList = [
