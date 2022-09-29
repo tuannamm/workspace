@@ -29,7 +29,11 @@ const renderTodoList = (todoList, ulElement) => {
 };
 
 const getTodoList = () => {
-  const todoList = JSON.parse(localStorage.getItem('todo_list'));
+  try {
+    return JSON.parse(localStorage.getItem('todo_list'));
+  } catch {
+    return [];
+  }
 };
 
 // main
