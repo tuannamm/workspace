@@ -14,6 +14,7 @@ const createTodoList = (todo) => {
   const divElement = todoTemplate.querySelector('div.todo');
   if (divElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
+    divElement.classList.remove('alert-secondary');
     divElement.classList.add(alertClass);
   }
 
