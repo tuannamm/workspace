@@ -16,9 +16,7 @@ const createTodoList = (todo) => {
   // add click events for mark-as-done button
   const markAsDoneButton = todoElement.querySelector('button.mark-as-done');
   if (markAsDoneButton) {
-    markAsDoneButton.addEventListener('click', () => {
-      console.log('xxxxxx');
-    });
+    markAsDoneButton.addEventListener('click', () => {});
   }
 
   // add click event for remove button
