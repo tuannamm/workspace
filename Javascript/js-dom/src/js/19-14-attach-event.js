@@ -26,6 +26,7 @@ const createTodoList = (todo) => {
   if (removeButton) {
     removeButton.addEventListener('click', () => {
       console.log('xxxxxxxxxx');
+      todoElement.remove();
     });
   }
 
