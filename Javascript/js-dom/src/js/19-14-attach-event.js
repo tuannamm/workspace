@@ -10,8 +10,9 @@ const createTodoList = (todo) => {
   todoElement.dataset.id = todo.id;
   todoElement.dataset.status = todo.status;
 
-  // rendo todo status
-  const divElement = todoTemplate.querySelector('div.todo');
+  // render todo status
+  const divElement = todoElement.querySelector('div.todo');
+  if (!divElement) return;
   if (divElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
     divElement.classList.remove('alert-secondary');
@@ -25,7 +26,13 @@ const createTodoList = (todo) => {
   // add click events for mark-as-done button
   const markAsDoneButton = todoElement.querySelector('button.mark-as-done');
   if (markAsDoneButton) {
-    markAsDoneButton.addEventListener('click', () => {});
+    markAsDoneButton.addEventListener('click', () => {
+      const currentStatus = todoElement.dataset.status;
+      todoElement.dataset.status = currentStatus === 'pending' ? 'completed' : 'pending';
+      const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
+      divElement.classList.remove('alert-success', 'alert-secondary');
+      divElement.classList.add(newAlertClass);
+    });
   }
 
   // add click event for remove button
