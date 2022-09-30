@@ -8,12 +8,13 @@ const createTodoList = (todo) => {
   // clone li element
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
   todoElement.dataset.id = todo.id;
+  todoElement.dataset.status = todo.status;
 
   // rendo todo status
   const divElement = todoTemplate.querySelector('div.todo');
   if (divElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
-    divElement.classList.add();
+    divElement.classList.add(alertClass);
   }
 
   // update content
@@ -63,7 +64,7 @@ const getTodoList = () => {
   const todoList = [
     { id: 1, title: 'Learn Javascript', status: 'pending' },
     { id: 2, title: 'Learn ReactJS', status: 'completed' },
-    { id: 3, title: 'Learn NextJS', status: '' },
+    { id: 3, title: 'Learn NextJS', status: 'pending' },
   ];
 
   // const todoList = getTodoList();
