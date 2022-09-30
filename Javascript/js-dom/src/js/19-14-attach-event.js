@@ -9,6 +9,13 @@ const createTodoList = (todo) => {
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
   todoElement.dataset.id = todo.id;
 
+  // rendo todo status
+  const divElement = todoTemplate.querySelector('div.todo');
+  if (divElement) {
+    const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
+    divElement.classList.add();
+  }
+
   // update content
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
@@ -54,9 +61,9 @@ const getTodoList = () => {
 // main
 (() => {
   const todoList = [
-    { id: 1, title: 'Learn Javascript' },
-    { id: 2, title: 'Learn ReactJS' },
-    { id: 3, title: 'Learn NextJS' },
+    { id: 1, title: 'Learn Javascript', status: 'pending' },
+    { id: 2, title: 'Learn ReactJS', status: 'completed' },
+    { id: 3, title: 'Learn NextJS', status: '' },
   ];
 
   // const todoList = getTodoList();
