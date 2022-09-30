@@ -13,6 +13,22 @@ const createTodoList = (todo) => {
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
 
+  // add click events for mark-as-done button
+  const markAsDoneButton = todoElement.querySelector('button.mark-as-done');
+  if (markAsDoneButton) {
+    markAsDoneButton.addEventListener('click', () => {
+      console.log('xxxxxx');
+    });
+  }
+
+  // add click event for remove button
+  const removeButton = todoElement.querySelector('button.remove');
+  if (removeButton) {
+    removeButton.addEventListener('click', () => {
+      console.log('xxxxxxxxxx');
+    });
+  }
+
   return todoElement;
 };
 
