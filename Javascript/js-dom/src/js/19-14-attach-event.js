@@ -50,7 +50,7 @@ const renderTodoList = (todoList, ulElement) => {
   if (!Array.isArray(todoList) || todoList.length === 0) return null;
 
   const ulListElement = document.getElementById('todoList');
-  if (!ulListElement);
+  if (!ulListElement) return;
 
   for (let i = 0; i < todoList.length; i++) {
     const liElement = createTodoList(todoList[i]);
