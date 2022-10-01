@@ -2,10 +2,15 @@ const createTodoList = (todo) => {
   if (!todo) return;
 
   // find template
-  const todoElement = document.getElementById('todoTemplate');
-  // clone
+  const todoTemplate = document.getElementById('todoTemplate');
+  if (!todoTemplate) return;
 
-  // render li list todo
+  // clone
+  const liTodoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+
+  // update content
+  const titleElement = document.querySelector('todo__title');
+  if (titleElement) titleElement.textContent = todo.title;
 };
 
 const renderTodoList = (todoList, ulElement) => {
