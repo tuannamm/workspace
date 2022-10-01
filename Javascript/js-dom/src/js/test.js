@@ -9,7 +9,7 @@ const createTodoList = (todo) => {
   const liTodoElement = todoTemplate.content.firstElementChild.cloneNode(true);
 
   // update content
-  const titleElement = document.liTodoElement.querySelector('todo__title');
+  const titleElement = liTodoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
 };
 
