@@ -35,6 +35,8 @@ const createTodoList = (todo) => {
       // save to local storage
       const todoList = getTodoList();
       const index = todoList.findIndex((x) => x.id === todo.id);
+      if (index >= 0) {
+      }
     });
   }
 };
