@@ -11,7 +11,7 @@ const createTodoList = (todo) => {
   const divElement = todoElement.querySelector('div.todo');
   if (!divElement) return;
   if (divElement) {
-    const alertClass = todo.status === 'completed' ? 'pending';
+    const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-second';
   }
 
   const titleElement = todoElement.querySelector('.todo__title');
