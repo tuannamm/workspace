@@ -1,18 +1,3 @@
-const createTodoList = (todo) => {
-  if (!todo) return;
-
-  // find template
-  const todoTemplate = document.getElementById('todoTemplate');
-  if (!todoTemplate) return null;
-
-  // clone
-  const liTodoElement = todoTemplate.content.firstElementChild.cloneNode(true);
-
-  // update content
-  const titleElement = liTodoElement.querySelector('.todo__title');
-  if (titleElement) titleElement.textContent = todo.title;
-};
-
 const renderTodoList = (todoList, ulElement) => {
   if (!Array.isArray(todoList) || todoList.length === 0) return null;
 
