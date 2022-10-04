@@ -28,7 +28,18 @@ const createTodoList = (todo) => {
   if (markAsDoneButton) {
     markAsDoneButton.addEventListener('click', () => {
       const currentStatus = todoElement.dataset.status;
-      todoElement.dataset.status = currentStatus === 'pending' ? 'completed' : 'pending';
+      const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
+
+      // get current todoList
+      // update status of current todo
+      // save to local storage
+      const todoList = getTodoList();
+      const index = todoList.findIndex((x) => x.id === todo.id);
+      todoElement[index].status = newStatus;
+
+      // update status
+      todoElement.dataset.status = newStatus;
+
       const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
       divElement.classList.remove('alert-success', 'alert-secondary');
       divElement.classList.add(newAlertClass);
