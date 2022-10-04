@@ -3,16 +3,12 @@ const createTodoList = (todo) => {
 
   // find template
   const todoTemplate = document.getElementById('todoTemplate');
-  if (!todoTemplate) return;
+  if (!todoTemplate) return null;
 
   // clone li element
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
   todoElement.dataset.id = todo.id;
   todoElement.dataset.status = todo.status;
-
-  // update content
-  const titleElement = document.querySelector('.todo__title');
-  if (titleElement) titleElement.textContent = todo.title;
 
   // render todo status
   const divElement = todoElement.querySelector('div.todo');
@@ -23,12 +19,16 @@ const createTodoList = (todo) => {
     divElement.classList.add(alertClass);
   }
 
+  // update content
+  const titleElement = todoElement.querySelector('.todo__title');
+  if (titleElement) titleElement.textContent = todo.title;
+
   // add click events for mark-as-done button
-  const markAsDoneButton = todo.querySelector('button.mark-as-done');
+  const markAsDoneButton = todoElement.querySelector('button.mark-as-done');
   if (markAsDoneButton) {
     markAsDoneButton.addEventListener('click', () => {
       const currentStatus = todoElement.dataset.status;
-      const newStatus = currentStatus === 'pending' ? 'complete' : 'pending';
+      const newStatus = currentStatus === 'pending' ? 'completed' : 'pending';
 
       // get current todoList
       // update status of current todo
@@ -37,7 +37,7 @@ const createTodoList = (todo) => {
       const index = todoList.findIndex((x) => x.id === todo.id);
       if (index >= 0) {
         todoList[index].status = newStatus;
-        localStorage.setItem('todo_list', JSON.stringify(todoList) || []);
+        localStorage.setItem('todo_list', JSON.stringify(todoList));
       }
 
       // update data-status on li element
@@ -51,22 +51,24 @@ const createTodoList = (todo) => {
   }
 
   // add click event for remove button
-  const removeButton = document.getElementById('button.remove');
+  const removeButton = todoElement.querySelector('button.remove');
   if (removeButton) {
     removeButton.addEventListener('click', () => {
       // save to local storage
       const todoList = getTodoList();
       const newTodoList = todoList.filter((x) => x.id !== todo.id);
-      localStorage.setItem('todo_list'.JSON.stringify(newTodoList) || []);
+      localStorage.setItem('todo_list', JSON.stringify(newTodoList) || []);
 
       // remove
       todoElement.remove();
     });
   }
+
+  return todoElement;
 };
 
 const renderTodoList = (todoList, ulElement) => {
-  if (!Array.isArray(todoList) || todoList.length === 0) return;
+  if (!Array.isArray(todoList) || todoList.length === 0) return null;
 
   const ulListElement = document.getElementById(ulElement);
   if (!ulListElement) return;
@@ -79,8 +81,8 @@ const renderTodoList = (todoList, ulElement) => {
 
 const getTodoList = () => {
   try {
-    return JSON.parse(localStorage.getItem('todo__list') || []);
-  } catch (error) {
+    return JSON.parse(localStorage.getItem('todo_list'));
+  } catch {
     return [];
   }
 };
