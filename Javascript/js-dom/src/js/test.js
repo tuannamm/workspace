@@ -12,10 +12,19 @@ const createTodoList = (todo) => {
   if (!divElement) return;
   if (divElement) {
     const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-second';
+    divElement.classList.remove('alert-secondary');
+    divElement.classList.add(alertClass);
   }
 
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
+
+  const removeButton = todoElement.querySelector('.button.remove');
+  if (removeButton) {
+    removeButton.addEventListener('click', () => {
+      todoElement.remove();
+    });
+  }
 };
 
 const renderTodoList = (todoList, ulElement) => {
