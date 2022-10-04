@@ -42,6 +42,9 @@ const createTodoList = (todo) => {
 
       // update data-status on li element
       todoElement.dataset.status = newStatus;
+
+      // update alert class accordingly
+      const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
     });
   }
 };
