@@ -57,7 +57,7 @@ const createTodoList = (todo) => {
       // save to local storage
       const todoList = getTodoList();
       const newTodoList = todoList.filter((x) => x.id !== todo.id);
-      localStorage.setItem('todo_list', JSON.stringify(newTodoList));
+      localStorage.setItem('todo_list', JSON.stringify(newTodoList) || []);
 
       // remove
       todoElement.remove();
