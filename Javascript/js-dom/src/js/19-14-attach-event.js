@@ -37,9 +37,10 @@ const createTodoList = (todo) => {
       const index = todoList.findIndex((x) => x.id === todo.id);
       todoElement[index].status = newStatus;
 
-      // update status
+      // update data-status on li element
       todoElement.dataset.status = newStatus;
 
+      // update alert class accordingly
       const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
       divElement.classList.remove('alert-success', 'alert-secondary');
       divElement.classList.add(newAlertClass);
