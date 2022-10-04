@@ -1,7 +1,7 @@
 const createTodoList = (todo) => {
   if (!todo) return;
 
-  const todoTemplate = document.getElementById(todoTemplate);
+  const todoTemplate = document.getElementById('todoTemplate');
   if (!todoTemplate) return null;
 
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
