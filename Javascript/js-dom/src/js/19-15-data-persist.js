@@ -45,6 +45,8 @@ const createTodoList = (todo) => {
 
       // update alert class accordingly
       const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
+      divElement.classList.remove('alert-success', 'alert-secondary');
+      divElement.classList.add(newAlertClass);
     });
   }
 };
