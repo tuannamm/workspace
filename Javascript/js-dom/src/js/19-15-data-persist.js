@@ -27,8 +27,8 @@ const createTodoList = (todo) => {
   const markAsDoneButton = todo.querySelector('button.mark-as-done');
   if (markAsDoneButton) {
     markAsDoneButton.addEventListener('click', () => {
-      const 
-    })
+      const currentStatus = todoElement.dataset.status;
+    });
   }
 };
 
