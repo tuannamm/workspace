@@ -37,7 +37,7 @@ const createTodoList = (todo) => {
       const index = todoList.findIndex((x) => x.id === todo.id);
       if (index >= 0) {
         todoList[index].status = newStatus;
-        localStorage.setItem('todo_list', JSON.stringify(todoList));
+        localStorage.setItem('todo_list', JSON.stringify(todoList) || []);
       }
     });
   }
