@@ -35,8 +35,10 @@ const createTodoList = (todo) => {
       // save to local storage
       const todoList = getTodoList();
       const index = todoList.findIndex((x) => x.id === todo.id);
-      todoElement[index].status = newStatus;
-      localStorage.setItem('todo_list', JSON.stringify(todoList));
+      if (index >= 0) {
+        todoElement[index].status = newStatus;
+        localStorage.setItem('todo_list', JSON.stringify(todoList));
+      }
 
       // update data-status on li element
       todoElement.dataset.status = newStatus;
