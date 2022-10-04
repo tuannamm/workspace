@@ -36,7 +36,7 @@ const createTodoList = (todo) => {
       const todoList = getTodoList();
       const index = todoList.findIndex((x) => x.id === todo.id);
       if (index >= 0) {
-        todoElement[index].status = newStatus;
+        todoList[index].status = newStatus;
         localStorage.setItem('todo_list', JSON.stringify(todoList));
       }
 
