@@ -39,9 +39,13 @@ const createTodoList = (todo) => {
   const removeButton = todoElement.querySelector('button.remove');
   if (removeButton) {
     removeButton.addEventListener('click', () => {
-      // where to get todo list
+      // save to local storage
 
       const todoList = getTodoList();
+      const newTodoList = todoList.filter((x) => x.id !== todo.id);
+      localStorage.setItem('todo_list', JSON.stringify(newTodoList));
+
+      // remove
       todoElement.remove();
     });
   }
