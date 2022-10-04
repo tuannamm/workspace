@@ -1,3 +1,5 @@
+const renderTodoList = (todoList, ulElement) => {};
+
 const getTodoList = () => {
   try {
     return JSON.parse(localStorage.getItem('todo__list') || []);
