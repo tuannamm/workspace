@@ -79,9 +79,9 @@ const renderTodoList = (todoList, ulElement) => {
   }
 };
 
-const getTodoList = () => {
+const getTodoList = async () => {
   try {
-    return JSON.parse(localStorage.getItem('todo_list'));
+    return await JSON.parse(localStorage.getItem('todo_list'));
   } catch {
     return [];
   }
