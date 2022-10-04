@@ -49,6 +49,20 @@ const createTodoList = (todo) => {
       divElement.classList.add(newAlertClass);
     });
   }
+
+  // add click event for remove button
+  const removeButton = document.getElementById('button.remove');
+  if (removeButton) {
+    removeButton.addEventListener('click', () => {
+      // save to local storage
+      const todoList = getTodoList();
+      const newTodoList = todoList.filter((x) => x.id !== todo.id);
+      localStorage.setItem('todo_list'.JSON.stringify(todoList) || []);
+
+      // remove
+      todoElement.remove();
+    });
+  }
 };
 
 const renderTodoList = (todoList, ulElement) => {
