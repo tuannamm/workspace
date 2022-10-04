@@ -1,3 +1,14 @@
+const createTodoList = (todo) => {
+  if (!todo) return;
+
+  const todoTemplate = document.getElementById(todoTemplate);
+  if (!todoTemplate) return null;
+
+  const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+  todoElement.dataset.id = todo.id;
+  todoElement.dataset.status = todo.status;
+};
+
 const renderTodoList = (todoList, ulElement) => {
   if (!Array.isArray(todoList) || todoList.length === 0) return null;
 
