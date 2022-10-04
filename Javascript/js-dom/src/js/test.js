@@ -19,6 +19,17 @@ const createTodoList = (todo) => {
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
 
+  const markAsDoneButton = todoElement.querySelector('button.mark-as-done');
+  if (markAsDoneButton) {
+    markAsDoneButton.addEventListener('click', () => {
+      const currentStatus = todoElement.dataset.status;
+      todoElement.dataset.status = currentStatus === 'pending' ? 'completed' : 'pending';
+      const newAlertClass = currentStatus === 'pending' ? 'alert-success' : 'alert-secondary';
+      divElement.classList.remove('alert-success', 'alert-secondary');
+      divElement.classList.add(newAlertClass);
+    });
+  }
+
   const removeButton = todoElement.querySelector('.button.remove');
   if (removeButton) {
     removeButton.addEventListener('click', () => {
