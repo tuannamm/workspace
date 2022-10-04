@@ -13,6 +13,10 @@ const createTodoList = (todo) => {
   // update content
   const titleElement = document.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
+
+  // render todo status
+  const divElement = todoElement.querySelector('div.todo');
+  if (!divElement) return;
 };
 
 const renderTodoList = (todoList, ulElement) => {
