@@ -10,6 +10,8 @@ const createTodoList = (todo) => {
 
   const divElement = todoElement.querySelector('div.todo');
   if (!divElement) return;
+  if (divElement) {
+  }
 
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
