@@ -40,6 +40,8 @@ const createTodoList = (todo) => {
   if (removeButton) {
     removeButton.addEventListener('click', () => {
       // where to get todo list
+
+      const todoList = getTodoList();
       todoElement.remove();
     });
   }
