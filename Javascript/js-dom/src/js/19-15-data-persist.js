@@ -7,6 +7,8 @@ const createTodoList = (todo) => {
 
   // clone li element
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
+  todoElement.dataset.id = todo.id;
+  todoElement.dataset.status = todo.status;
 };
 
 const renderTodoList = (todoList, ulElement) => {
