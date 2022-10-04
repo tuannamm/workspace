@@ -39,6 +39,9 @@ const createTodoList = (todo) => {
         todoList[index].status = newStatus;
         localStorage.setItem('todo_list', JSON.stringify(todoList) || []);
       }
+
+      // update data-status on li element
+      todoElement.dataset.status = newStatus;
     });
   }
 };
