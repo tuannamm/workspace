@@ -1,4 +1,8 @@
-const renderTodoList = (todoList, ulElement) => {};
+const renderTodoList = (todoList, ulElement) => {
+  if (!Array.isArray(todoList) || todoList.length === 0) return;
+
+  const ulListElement = document.getElementById(ulElement);
+};
 
 const getTodoList = () => {
   try {
