@@ -39,6 +39,7 @@ const createTodoList = (todo) => {
   const removeButton = todoElement.querySelector('button.remove');
   if (removeButton) {
     removeButton.addEventListener('click', () => {
+      // where to get todo list
       todoElement.remove();
     });
   }
