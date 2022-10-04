@@ -17,6 +17,19 @@ const createTodoList = (todo) => {
   // render todo status
   const divElement = todoElement.querySelector('div.todo');
   if (!divElement) return;
+  if (divElement) {
+    const alertClass = todo.status === 'completed' ? 'alert-success' : 'alert-secondary';
+    divElement.classList.remove('alert-secondary');
+    divElement.classList.add(alertClass);
+  }
+
+  // add click events for mark-as-done button
+  const markAsDoneButton = todo.querySelector('button.mark-as-done');
+  if (markAsDoneButton) {
+    markAsDoneButton.addEventListener('click', () => {
+      const 
+    })
+  }
 };
 
 const renderTodoList = (todoList, ulElement) => {
