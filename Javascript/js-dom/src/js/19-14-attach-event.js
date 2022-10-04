@@ -55,7 +55,6 @@ const createTodoList = (todo) => {
   if (removeButton) {
     removeButton.addEventListener('click', () => {
       // save to local storage
-
       const todoList = getTodoList();
       const newTodoList = todoList.filter((x) => x.id !== todo.id);
       localStorage.setItem('todo_list', JSON.stringify(newTodoList));
