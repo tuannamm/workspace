@@ -8,6 +8,9 @@ const createTodoList = (todo) => {
   todoElement.dataset.id = todo.id;
   todoElement.dataset.status = todo.status;
 
+  const divElement = todoElement.querySelector('div.todo');
+  if (!divElement) return;
+
   const titleElement = todoElement.querySelector('.todo__title');
   if (titleElement) titleElement.textContent = todo.title;
 };
