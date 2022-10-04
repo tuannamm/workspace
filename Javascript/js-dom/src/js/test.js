@@ -7,6 +7,9 @@ const createTodoList = (todo) => {
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
   todoElement.dataset.id = todo.id;
   todoElement.dataset.status = todo.status;
+
+  const titleElement = todoElement.querySelector('.todo__title');
+  if (titleElement) titleElement.textContent = todo.title;
 };
 
 const renderTodoList = (todoList, ulElement) => {
