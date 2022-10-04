@@ -28,6 +28,7 @@ const createTodoList = (todo) => {
   if (markAsDoneButton) {
     markAsDoneButton.addEventListener('click', () => {
       const currentStatus = todoElement.dataset.status;
+      const newStatus = currentStatus === 'pending' ? 'complete' : 'pending';
     });
   }
 };
