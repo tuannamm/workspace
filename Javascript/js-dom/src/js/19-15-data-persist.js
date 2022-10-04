@@ -2,6 +2,12 @@ const renderTodoList = (todoList, ulElement) => {
   if (!Array.isArray(todoList) || todoList.length === 0) return;
 
   const ulListElement = document.getElementById(ulElement);
+  if (!ulListElement) return;
+
+  for (let i = 0; i < todoList.length; i++) {
+    const liElement = createTodoList(todoList[i]);
+    ulListElement.appendChild(liElement);
+  }
 };
 
 const getTodoList = () => {
