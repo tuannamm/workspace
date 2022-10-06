@@ -66,6 +66,12 @@ const createTodoList = (todo) => {
 
   // add click event for edit button
   const editButton = todoElement.querySelector('button.edit');
+  if (editButton) {
+    editButton.addEventListener('click', () => {
+      // populate data to todo form
+      populateTodoForm(todo);
+    });
+  }
 
   return todoElement;
 };
