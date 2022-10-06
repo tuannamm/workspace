@@ -111,6 +111,9 @@ const handleTodoFormSubmit = (e) => {
 
   // apply DOM change
   const newLiElement = createTodoList(newTodo);
+  const ulListElement = document.getElementById('todoList');
+  if (!ulListElement) return;
+  ulListElement.appendChild(newLiElements);
 };
 
 // main
