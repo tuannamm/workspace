@@ -87,6 +87,10 @@ const getTodoList = () => {
   }
 };
 
+const handleTodoFormSubmit = (e) => {
+  e.preventDefault();
+};
+
 // main
 (() => {
   // const todoList = [
@@ -98,4 +102,10 @@ const getTodoList = () => {
   const todoList = getTodoList();
 
   renderTodoList(todoList, 'todoList');
+
+  // register submit event for todo form
+  const todoForm = document.getElementById('todoForm');
+  if (todoForm) {
+    todoForm.addEventListener('submit', () => {});
+  }
 })();
