@@ -95,6 +95,7 @@ const handleTodoFormSubmit = (e) => {
   // sale
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
+  if (!todoInput) return;
 };
 
 // main
