@@ -96,6 +96,8 @@ const handleTodoFormSubmit = (e) => {
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
   if (!todoInput) return;
+
+  const todoText = todoInput.value;
 };
 
 // main
