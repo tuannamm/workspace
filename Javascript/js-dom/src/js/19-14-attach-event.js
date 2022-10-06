@@ -94,7 +94,7 @@ const getTodoList = async () => {
   //   { id: 2, title: 'Learn ReactJS', status: 'completed' },
   //   { id: 3, title: 'Learn NextJS', status: 'pending' },
   // ];
-
+  console.log('xxx');
   const todoList = getTodoList();
   renderTodoList(todoList, 'todoList');
 })();
