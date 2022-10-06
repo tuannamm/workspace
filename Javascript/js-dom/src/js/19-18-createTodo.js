@@ -89,6 +89,9 @@ const getTodoList = () => {
 
 const handleTodoFormSubmit = (e) => {
   e.preventDefault();
+
+  // get form value
+  // validate form value
 };
 
 // main
@@ -106,6 +109,6 @@ const handleTodoFormSubmit = (e) => {
   // register submit event for todo form
   const todoForm = document.getElementById('todoForm');
   if (todoForm) {
-    todoForm.addEventListener('submit', () => {});
+    todoForm.addEventListener('submit', handleTodoFormSubmit);
   }
 })();
