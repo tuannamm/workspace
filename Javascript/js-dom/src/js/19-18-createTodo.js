@@ -116,6 +116,10 @@ const handleTodoFormSubmit = (e) => {
   const ulListElement = document.getElementById('todoList');
   if (!ulListElement) return;
   ulListElement.appendChild(newLiElement);
+
+  // reset form
+  const todoForm = document.getElementById('todoFormId');
+  if (todoForm) todoForm.reset();
 };
 
 // main
