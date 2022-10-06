@@ -111,7 +111,6 @@ const handleTodoFormSubmit = (e) => {
   if (!todoInput) return;
 
   const todoText = todoInput.value;
-  console.log(todoInput.value);
   if (!todoText) return;
   const newTodo = {
     id: Date.now(),
