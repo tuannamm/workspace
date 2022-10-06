@@ -89,17 +89,15 @@ const getTodoList = () => {
 
 const handleTodoFormSubmit = (e) => {
   e.preventDefault();
-  console.log('xx');
   // get form value
   // validate form value
   // sale
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
-  console.log(todoInput);
   if (!todoInput) return;
 
   const todoText = todoInput.value;
-
+  if (!todoText) return;
   const newTodo = {
     id: Date.now(),
     title: todoText,
