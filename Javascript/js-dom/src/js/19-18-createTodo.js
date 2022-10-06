@@ -96,9 +96,10 @@ const handleTodoFormSubmit = (e) => {
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
   if (!todoInput) return;
-  console.log(todoInput);
 
   const todoText = todoInput.value;
+  console.log(todoText);
+
   const newTodo = {
     id: Date.now(),
     title: todoText,
