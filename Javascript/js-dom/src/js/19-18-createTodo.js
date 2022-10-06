@@ -5,7 +5,7 @@ const createTodoList = (todo) => {
   const todoTemplate = document.getElementById('todoTemplate');
   if (!todoTemplate) return null;
 
-  // clone li element
+  // clone li elementt
   const todoElement = todoTemplate.content.firstElementChild.cloneNode(true);
   todoElement.dataset.id = todo.id;
   todoElement.dataset.status = todo.status;
@@ -79,9 +79,9 @@ const renderTodoList = (todoList, ulElement) => {
   }
 };
 
-const getTodoList = async () => {
+const getTodoList = () => {
   try {
-    return await JSON.parse(localStorage.getItem('todo_list'));
+    return JSON.parse(localStorage.getItem('todo_list'));
   } catch {
     return [];
   }
@@ -94,7 +94,8 @@ const getTodoList = async () => {
   //   { id: 2, title: 'Learn ReactJS', status: 'completed' },
   //   { id: 3, title: 'Learn NextJS', status: 'pending' },
   // ];
-  console.log('xxx');
+
   const todoList = getTodoList();
+
   renderTodoList(todoList, 'todoList');
 })();
