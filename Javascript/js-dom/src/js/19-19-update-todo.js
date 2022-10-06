@@ -64,6 +64,9 @@ const createTodoList = (todo) => {
     });
   }
 
+  // add click event for edit button
+  const editButton = todoElement.querySelector('button.edit');
+
   return todoElement;
 };
 
