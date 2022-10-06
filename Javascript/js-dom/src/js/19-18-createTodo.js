@@ -135,8 +135,8 @@ const handleTodoFormSubmit = (e) => {
   renderTodoList(todoList, 'todoList');
 
   // register submit event for todo form
-  const todoForm = document.getElementById('todoForm');
+  const todoForm = document.getElementById('todoFormId');
   if (todoForm) {
-    todoForm.addEventListener('submit', () => handleTodoFormSubmit());
+    todoForm.addEventListener('submit', handleTodoFormSubmit);
   }
 })();
