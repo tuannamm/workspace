@@ -76,6 +76,11 @@ const createTodoList = (todo) => {
   return todoElement;
 };
 
+function populateTodoForm() {
+  // query todo form
+  // dataset.id = todo.id
+}
+
 const renderTodoList = (todoList, ulElement) => {
   if (!Array.isArray(todoList) || todoList.length === 0) return null;
 
@@ -106,6 +111,7 @@ const handleTodoFormSubmit = (e) => {
   if (!todoInput) return;
 
   const todoText = todoInput.value;
+  console.log(todoInput.value);
   if (!todoText) return;
   const newTodo = {
     id: Date.now(),
