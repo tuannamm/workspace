@@ -104,9 +104,13 @@ const handleTodoFormSubmit = (e) => {
     status: 'pending',
   };
 
+  // save
   const todoList = getTodoList();
   todoList.push(newTodo);
   localStorage.setItem('todo_list', JSON.stringify(todoList));
+
+  // apply DOM change
+  const newLiElement = createTodoList(newTodo);
 };
 
 // main
