@@ -98,6 +98,15 @@ const handleTodoFormSubmit = (e) => {
   if (!todoInput) return;
 
   const todoText = todoInput.value;
+  const newTodo = {
+    id: Date.now(),
+    title: todoText,
+    status: 'pending',
+  };
+
+  const todoList = getTodoList();
+  todoList.push(newTodo);
+  localStorage.setItem('todo_list', JSON.stringify(todoList));
 };
 
 // main
