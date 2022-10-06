@@ -96,6 +96,7 @@ const handleTodoFormSubmit = (e) => {
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
   if (!todoInput) return;
+  console.log(todoInput);
 
   const todoText = todoInput.value;
   const newTodo = {
@@ -113,7 +114,7 @@ const handleTodoFormSubmit = (e) => {
   const newLiElement = createTodoList(newTodo);
   const ulListElement = document.getElementById('todoList');
   if (!ulListElement) return;
-  ulListElement.appendChild(newLiElements);
+  ulListElement.appendChild(newLiElement);
 };
 
 // main
