@@ -95,10 +95,10 @@ const handleTodoFormSubmit = (e) => {
   // sale
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
+  console.log(todoInput);
   if (!todoInput) return;
 
   const todoText = todoInput.value;
-  console.log(todoText);
 
   const newTodo = {
     id: Date.now(),
@@ -137,6 +137,6 @@ const handleTodoFormSubmit = (e) => {
   // register submit event for todo form
   const todoForm = document.getElementById('todoForm');
   if (todoForm) {
-    todoForm.addEventListener('submit', handleTodoFormSubmit);
+    todoForm.addEventListener('submit', () => handleTodoFormSubmit());
   }
 })();
