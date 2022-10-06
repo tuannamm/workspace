@@ -89,7 +89,7 @@ const getTodoList = () => {
 
 const handleTodoFormSubmit = (e) => {
   e.preventDefault();
-
+  console.log('xx');
   // get form value
   // validate form value
   // sale
