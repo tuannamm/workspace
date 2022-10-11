@@ -76,18 +76,20 @@ const createTodoList = (todo) => {
   return todoElement;
 };
 
-function populateTodoForm() {
+const populateTodoForm = () => {
   // query todo form
   // dataset.id = todo.id
-}
+};
 
 const renderTodoList = (todoList, ulElement) => {
   if (!Array.isArray(todoList) || todoList.length === 0) return null;
 
+  let todoListLength = todoList.length;
+
   const ulListElement = document.getElementById(ulElement);
   if (!ulListElement) return;
 
-  for (let i = 0; i < todoList.length; i++) {
+  for (let i = 0; i < todoListLength; i++) {
     const liElement = createTodoList(todoList[i]);
     ulListElement.appendChild(liElement);
   }
