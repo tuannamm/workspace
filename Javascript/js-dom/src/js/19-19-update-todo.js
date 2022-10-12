@@ -135,11 +135,17 @@ const handleTodoFormSubmit = (e) => {
   const isEdit = Boolean(todoForm.dataset.id);
   if (isEdit) {
     // find current todo
-    // update content
-    // save
-    // apply DOM change
     const todoList = getTodoList();
     const index = todoList.findIndex((x) => x.id.toString() === todoForm.dataset.id);
+    if (index < 0) return;
+
+    // update content
+    todoList[index].title = todoInput.value;
+
+    // save
+    localStorage.setItem('todo_list', JSON.stringify(todoList));
+
+    // apply DOM changes
   } else {
     // add mode
     const newTodo = {
