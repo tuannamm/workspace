@@ -121,7 +121,10 @@ const handleTodoFormSubmit = (e) => {
   // sale
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
-  if (!todoInput) return;
+  if (!todoInput) {
+    alert('Todo input is not found');
+    return;
+  }
 
   const todoText = todoInput.value;
   if (!todoText) return;
@@ -130,6 +133,8 @@ const handleTodoFormSubmit = (e) => {
     title: todoText,
     status: 'pending',
   };
+
+  // determine add or edit mode
 
   // save
   const todoList = getTodoList();
