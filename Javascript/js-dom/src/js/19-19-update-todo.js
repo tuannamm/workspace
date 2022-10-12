@@ -69,9 +69,12 @@ const createTodoList = (todo) => {
   if (editButton) {
     editButton.addEventListener('click', () => {
       // TODO: latest todo data - get from local storage
+      const todoList = getTodoList();
+      const latestTodo = todoList.find((x) => x.id === todo.id);
+      if (!latestTodo) return;
 
       // populate data to todo form
-      populateTodoForm(todo);
+      populateTodoForm(latestTodo);
     });
   }
 
@@ -146,11 +149,17 @@ const handleTodoFormSubmit = (e) => {
     localStorage.setItem('todo_list', JSON.stringify(todoList));
 
     // apply DOM changes
+    // find li element have data-id = todoForm.dataset.id
+    const liElement = document.querySelector(`ul#todoList > li[data-id="${todoForm.dataset.id}"]`);
+    if (liElement) {
+      const titleElement = liElement.querySelector('.todo__title');
+      if (titleElement) titleElement.textContent = todoInput.value;
+    }
   } else {
     // add mode
     const newTodo = {
       id: Date.now(),
-      title: todoText,
+      title: todoInput.value,
       status: 'pending',
     };
 
@@ -164,11 +173,10 @@ const handleTodoFormSubmit = (e) => {
     const ulListElement = document.getElementById('todoList');
     if (!ulListElement) return;
     ulListElement.appendChild(newLiElement);
-
-    // reset form
-    delete todoForm.dataset.id;
-    todoForm.reset();
   }
+  // reset form
+  delete todoForm.dataset.id;
+  todoForm.reset();
 };
 
 // main
@@ -176,6 +184,7 @@ const handleTodoFormSubmit = (e) => {
   const todoList = getTodoList();
 
   renderTodoList(todoList, 'todoList');
+  const todoForm = document.getElementById('todoFormId');
 
   // register submit event for todo form
   if (todoForm) {
