@@ -116,9 +116,13 @@ const getTodoList = () => {
 
 const handleTodoFormSubmit = (e) => {
   e.preventDefault();
+
+  const todoForm = document.getElementById('todoFormId');
+  if (!todoForm) return;
+
   // get form value
   // validate form value
-  // sale
+  // save
   // apply DOM changes
   const todoInput = document.getElementById('todoText');
   if (!todoInput) {
@@ -148,7 +152,6 @@ const handleTodoFormSubmit = (e) => {
   ulListElement.appendChild(newLiElement);
 
   // reset form
-  const todoForm = document.getElementById('todoFormId');
   if (todoForm) todoForm.reset();
 };
 
@@ -159,7 +162,6 @@ const handleTodoFormSubmit = (e) => {
   renderTodoList(todoList, 'todoList');
 
   // register submit event for todo form
-  const todoForm = document.getElementById('todoFormId');
   if (todoForm) {
     todoForm.addEventListener('submit', handleTodoFormSubmit);
   }
