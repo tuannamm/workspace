@@ -79,6 +79,15 @@ const createTodoList = (todo) => {
 const populateTodoForm = (todo) => {
   // query todo form
   // dataset.id = todo.id
+  const todoForm = document.getElementById('todoFormId');
+  if (!todoForm) return;
+
+  todoForm.dataset.id = todo.id;
+
+  // set values for form controls
+  // set todoText input
+  const todoInput = document.getElementById('todoText');
+  todoInput.value = todo.title;
 };
 
 const renderTodoList = (todoList, ulElement) => {
