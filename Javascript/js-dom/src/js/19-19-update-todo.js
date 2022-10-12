@@ -122,8 +122,6 @@ const handleTodoFormSubmit = (e) => {
 
   // get form value
   // validate form value
-  // save
-  // apply DOM changes
   const todoInput = document.getElementById('todoText');
   if (!todoInput) {
     alert('Todo input is not found');
@@ -132,13 +130,18 @@ const handleTodoFormSubmit = (e) => {
 
   const todoText = todoInput.value;
   if (!todoText) return;
-  const newTodo = {
-    id: Date.now(),
-    title: todoText,
-    status: 'pending',
-  };
 
   // determine add or edit mode
+  const isEdit = Boolean(todoForm.dataset.id);
+  if (isEdit) {
+  } else {
+    // add mode
+    const newTodo = {
+      id: Date.now(),
+      title: todoText,
+      status: 'pending',
+    };
+  }
 
   // save
   const todoList = getTodoList();
@@ -152,7 +155,8 @@ const handleTodoFormSubmit = (e) => {
   ulListElement.appendChild(newLiElement);
 
   // reset form
-  if (todoForm) todoForm.reset();
+  delete todoForm.dataset.id;
+  todoForm.reset();
 };
 
 // main
