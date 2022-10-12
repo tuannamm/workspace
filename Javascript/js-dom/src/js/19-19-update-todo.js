@@ -76,7 +76,7 @@ const createTodoList = (todo) => {
   return todoElement;
 };
 
-const populateTodoForm = () => {
+const populateTodoForm = (todo) => {
   // query todo form
   // dataset.id = todo.id
 };
