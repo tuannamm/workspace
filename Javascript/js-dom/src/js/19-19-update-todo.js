@@ -68,6 +68,8 @@ const createTodoList = (todo) => {
   const editButton = todoElement.querySelector('button.edit');
   if (editButton) {
     editButton.addEventListener('click', () => {
+      // TODO: latest todo data - get from local storage
+
       // populate data to todo form
       populateTodoForm(todo);
     });
@@ -87,7 +89,7 @@ const populateTodoForm = (todo) => {
   // set values for form controls
   // set todoText input
   const todoInput = document.getElementById('todoText');
-  todoInput.value = todo.title;
+  if (todoInput) todoInput.value = todo.title;
 };
 
 const renderTodoList = (todoList, ulElement) => {
