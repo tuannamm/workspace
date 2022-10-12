@@ -134,6 +134,7 @@ const handleTodoFormSubmit = (e) => {
   // determine add or edit mode
   const isEdit = Boolean(todoForm.dataset.id);
   if (isEdit) {
+    //
   } else {
     // add mode
     const newTodo = {
@@ -141,22 +142,22 @@ const handleTodoFormSubmit = (e) => {
       title: todoText,
       status: 'pending',
     };
+
+    // save
+    const todoList = getTodoList();
+    todoList.push(newTodo);
+    localStorage.setItem('todo_list', JSON.stringify(todoList));
+
+    // apply DOM change
+    const newLiElement = createTodoList(newTodo);
+    const ulListElement = document.getElementById('todoList');
+    if (!ulListElement) return;
+    ulListElement.appendChild(newLiElement);
+
+    // reset form
+    delete todoForm.dataset.id;
+    todoForm.reset();
   }
-
-  // save
-  const todoList = getTodoList();
-  todoList.push(newTodo);
-  localStorage.setItem('todo_list', JSON.stringify(todoList));
-
-  // apply DOM change
-  const newLiElement = createTodoList(newTodo);
-  const ulListElement = document.getElementById('todoList');
-  if (!ulListElement) return;
-  ulListElement.appendChild(newLiElement);
-
-  // reset form
-  delete todoForm.dataset.id;
-  todoForm.reset();
 };
 
 // main
