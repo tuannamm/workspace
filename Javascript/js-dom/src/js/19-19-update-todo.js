@@ -138,6 +138,8 @@ const handleTodoFormSubmit = (e) => {
     // update content
     // save
     // apply DOM change
+    const todoList = getTodoList();
+    const index = todoList.findIndex((x) => x.id.toString() === todoForm.dataset.id);
   } else {
     // add mode
     const newTodo = {
