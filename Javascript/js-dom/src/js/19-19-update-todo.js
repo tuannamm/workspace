@@ -134,7 +134,10 @@ const handleTodoFormSubmit = (e) => {
   // determine add or edit mode
   const isEdit = Boolean(todoForm.dataset.id);
   if (isEdit) {
-    //
+    // find current todo
+    // update content
+    // save
+    // apply DOM change
   } else {
     // add mode
     const newTodo = {
