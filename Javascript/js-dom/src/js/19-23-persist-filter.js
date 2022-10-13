@@ -2,7 +2,26 @@ const getAllTodoElements = () => {
   return document.querySelectorAll('#todoList > li');
 };
 
-const isMatch = (liElement, searchTerm) => {
+const inMatchStatus = (liElement, filterStatus) => {
+  return filterStatus === 'all' || liElement.dataset.status === filterStatus;
+};
+// const isMatch = (liElement, searchTerm) => {
+//   if (!liElement) return false;
+//   if (searchTerm === '') return true;
+
+//   // searchTerm === empty => show all todo
+//   // searchTerm !== empty => filter todo
+
+//   const titleElement = liElement.querySelector('p.todo__title');
+//   if (!titleElement) return false;
+
+//   const title = titleElement.textContent;
+//   if (!title) return false;
+
+//   return title.toLowerCase().includes(searchTerm.toLowerCase());
+// };
+
+const isMatch = (liElement, params) => {
   if (!liElement) return false;
   if (searchTerm === '') return true;
 
@@ -37,7 +56,7 @@ const handleFilterChange = (filterName, filterValue) => {
   const todoElementList = getAllTodoElements();
 
   for (const todoElement of todoElementList) {
-    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+    const needToShow = isMatch(todoElement, url.searchParams);
     todoElement.hidden = !needToShow;
   }
 };
