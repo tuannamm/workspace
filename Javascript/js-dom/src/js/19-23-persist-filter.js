@@ -28,10 +28,18 @@ const searchTodo = (searchTerm) => {
 };
 
 const handleFilterChange = (filterName, filterValue) => {
+  // update query params
   const url = new URL(window.location);
   url.searchParams.set(filterName, filterValue);
 
   history.pushState({}, '', url);
+
+  const todoElementList = getAllTodoElements();
+
+  for (const todoElement of todoElementList) {
+    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+    todoElement.hidden = !needToShow;
+  }
 };
 
 const initSearchInput = () => {
@@ -42,6 +50,7 @@ const initSearchInput = () => {
   // attach change event
   searchInput.addEventListener('input', () => {
     searchTodo(searchInput.value);
+    handleFilterChange('searchTerm', searchInput.value);
   });
 };
 
