@@ -63,7 +63,7 @@ const initSearchInput = (params) => {
 
   // attach change event
   searchInput.addEventListener('input', () => {
-    searchTodo(searchInput.value);
+    // searchTodo(searchInput.value);
     handleFilterChange('searchTerm', searchInput.value);
   });
 };
