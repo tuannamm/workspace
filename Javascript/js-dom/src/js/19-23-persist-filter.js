@@ -58,8 +58,8 @@ const initSearchInput = (params) => {
   const searchInput = document.getElementById('searchTerm');
   if (!searchInput) return;
 
-  if (params.get('searchTerm')) {
-    searchInput.value = params.get('searchTerm');
+  if (params.get('status')) {
+    searchInput.value = params.get('status');
   }
 
   // attach change event
@@ -69,14 +69,14 @@ const initSearchInput = (params) => {
   });
 };
 
-// const filterTodo = (filterStatus) => {
-//   const todoElementList = getAllTodoElements();
+const filterTodo = (filterStatus) => {
+  const todoElementList = getAllTodoElements();
 
-//   for (const todoElement of todoElementList) {
-//     const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
-//     todoElement.hidden = !needToShow;
-//   }
-// };
+  for (const todoElement of todoElementList) {
+    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+    todoElement.hidden = !needToShow;
+  }
+};
 
 const initFilterStatus = (params) => {
   // find select
