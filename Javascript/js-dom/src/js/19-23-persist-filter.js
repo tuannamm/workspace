@@ -27,6 +27,13 @@ const searchTodo = (searchTerm) => {
   }
 };
 
+const handleFilterChange = (filterName, filterValue) => {
+  const url = new URL(window.location);
+  url.searchParams.set(filterName, filterValue);
+
+  history.pushState({}, '', url);
+};
+
 const initSearchInput = () => {
   // find search term input
   const searchInput = document.getElementById('searchTerm');
@@ -55,6 +62,7 @@ const initFilterStatus = () => {
   // attach change event
   filterStatusSelect.addEventListener('change', () => {
     filterTodo(filterStatusSelect.value);
+    handleFilterChange('status', filterStatusSelect.value);
   });
 };
 
