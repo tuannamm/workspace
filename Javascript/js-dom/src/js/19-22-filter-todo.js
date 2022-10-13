@@ -38,13 +38,24 @@ const initSearchInput = () => {
   });
 };
 
+const filterTodo = (filterStatus) => {
+  const todoElementList = getAllTodoElements();
+
+  for (const todoElement of todoElementList) {
+    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+    todoElement.hidden = !needToShow;
+  }
+};
+
 const initFilterStatus = () => {
   // find select
-  const filterStatusSelect = document.getElementById('filterStatus');
+  const filterStatusSelect = document.getElementById('statusFilter');
   if (!filterStatusSelect) return;
 
   // attach change event
-  filterStatusSelect.addEventListener('change', () => {});
+  filterStatusSelect.addEventListener('change', () => {
+    filterTodo(filterStatusSelect.value);
+  });
 };
 
 // main
