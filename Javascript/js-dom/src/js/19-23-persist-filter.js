@@ -29,20 +29,19 @@ const isMatch = (liElement, params) => {
   );
 };
 
-const searchTodo = (searchTerm) => {
-  const todoElementList = getAllTodoElements();
+// const searchTodo = (searchTerm) => {
+//   const todoElementList = getAllTodoElements();
 
-  for (const todoElement of todoElementList) {
-    const needToShow = isMatch(todoElement, searchTerm);
-    todoElement.hidden = !needToShow;
-  }
-};
+//   for (const todoElement of todoElementList) {
+//     const needToShow = isMatch(todoElement, searchTerm);
+//     todoElement.hidden = !needToShow;
+//   }
+// };
 
 const handleFilterChange = (filterName, filterValue) => {
   // update query params
   const url = new URL(window.location);
   url.searchParams.set(filterName, filterValue);
-
   history.pushState({}, '', url);
 
   const todoElementList = getAllTodoElements();
@@ -64,19 +63,19 @@ const initSearchInput = (params) => {
 
   // attach change event
   searchInput.addEventListener('input', () => {
-    // searchTodo(searchInput.value);
+    searchTodo(searchInput.value);
     handleFilterChange('searchTerm', searchInput.value);
   });
 };
 
-const filterTodo = (filterStatus) => {
-  const todoElementList = getAllTodoElements();
+// const filterTodo = (filterStatus) => {
+//   const todoElementList = getAllTodoElements();
 
-  for (const todoElement of todoElementList) {
-    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
-    todoElement.hidden = !needToShow;
-  }
-};
+//   for (const todoElement of todoElementList) {
+//     const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+//     todoElement.hidden = !needToShow;
+//   }
+// };
 
 const initFilterStatus = (params) => {
   // find select
