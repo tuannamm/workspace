@@ -53,10 +53,14 @@ const handleFilterChange = (filterName, filterValue) => {
   }
 };
 
-const initSearchInput = () => {
+const initSearchInput = (params) => {
   // find search term input
   const searchInput = document.getElementById('searchTerm');
   if (!searchInput) return;
+
+  if (params.get('searchTerm')) {
+    searchInput.value = params.get('searchTerm');
+  }
 
   // attach change event
   searchInput.addEventListener('input', () => {
@@ -74,10 +78,14 @@ const initSearchInput = () => {
 //   }
 // };
 
-const initFilterStatus = () => {
+const initFilterStatus = (params) => {
   // find select
   const filterStatusSelect = document.getElementById('statusFilter');
   if (!filterStatusSelect) return;
+
+  if (params.get('searchTerm')) {
+    searchInput.value = params.get('searchTerm');
+  }
 
   // attach change event
   filterStatusSelect.addEventListener('change', () => {
