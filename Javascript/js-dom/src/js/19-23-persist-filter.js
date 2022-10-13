@@ -88,6 +88,7 @@ const initFilterStatus = () => {
 
 // main
 (() => {
+  const params = new URLSearchParams(window.location.search);
   initSearchInput();
   initFilterStatus();
 })();
