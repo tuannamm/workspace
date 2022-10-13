@@ -38,7 +38,17 @@ const initSearchInput = () => {
   });
 };
 
+const initFilterStatus = () => {
+  // find select
+  const filterStatusSelect = document.getElementById('filterStatus');
+  if (!filterStatusSelect) return;
+
+  // attach change event
+  filterStatusSelect.addEventListener('change', () => {});
+};
+
 // main
 (() => {
   initSearchInput();
+  initFilterStatus();
 })();
