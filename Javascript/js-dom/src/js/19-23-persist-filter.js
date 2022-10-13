@@ -2,7 +2,7 @@ const getAllTodoElements = () => {
   return document.querySelectorAll('#todoList > li');
 };
 
-const inMatchStatus = (liElement, filterStatus) => {
+const isMatchStatus = (liElement, filterStatus) => {
   return filterStatus === 'all' || liElement.dataset.status === filterStatus;
 };
 
@@ -25,7 +25,7 @@ const isMatchSearch = (liElement, searchTerm) => {
 const isMatch = (liElement, params) => {
   return (
     isMatchSearch(liElement, params.get('searchTerm')) &&
-    inMatchStatus(liElement, params.get('status'))
+    isMatchStatus(liElement, params.get('status'))
   );
 };
 
