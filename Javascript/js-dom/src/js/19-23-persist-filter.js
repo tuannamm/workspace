@@ -5,23 +5,8 @@ const getAllTodoElements = () => {
 const inMatchStatus = (liElement, filterStatus) => {
   return filterStatus === 'all' || liElement.dataset.status === filterStatus;
 };
-// const isMatch = (liElement, searchTerm) => {
-//   if (!liElement) return false;
-//   if (searchTerm === '') return true;
 
-//   // searchTerm === empty => show all todo
-//   // searchTerm !== empty => filter todo
-
-//   const titleElement = liElement.querySelector('p.todo__title');
-//   if (!titleElement) return false;
-
-//   const title = titleElement.textContent;
-//   if (!title) return false;
-
-//   return title.toLowerCase().includes(searchTerm.toLowerCase());
-// };
-
-const isMatch = (liElement, params) => {
+const isMatchSearch = (liElement, searchTerm) => {
   if (!liElement) return false;
   if (searchTerm === '') return true;
 
@@ -35,6 +20,13 @@ const isMatch = (liElement, params) => {
   if (!title) return false;
 
   return title.toLowerCase().includes(searchTerm.toLowerCase());
+};
+
+const isMatch = (liElement, params) => {
+  return (
+    isMatchSearch(liElement, params.get('searchTerm')) &&
+    inMatchStatus(liElement, params.get('status'))
+  );
 };
 
 const searchTodo = (searchTerm) => {
