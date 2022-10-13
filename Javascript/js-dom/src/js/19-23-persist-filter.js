@@ -60,19 +60,19 @@ const initSearchInput = () => {
 
   // attach change event
   searchInput.addEventListener('input', () => {
-    searchTodo(searchInput.value);
+    // searchTodo(searchInput.value);
     handleFilterChange('searchTerm', searchInput.value);
   });
 };
 
-const filterTodo = (filterStatus) => {
-  const todoElementList = getAllTodoElements();
+// const filterTodo = (filterStatus) => {
+//   const todoElementList = getAllTodoElements();
 
-  for (const todoElement of todoElementList) {
-    const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
-    todoElement.hidden = !needToShow;
-  }
-};
+//   for (const todoElement of todoElementList) {
+//     const needToShow = filterStatus === 'all' || todoElement.dataset.status === filterStatus;
+//     todoElement.hidden = !needToShow;
+//   }
+// };
 
 const initFilterStatus = () => {
   // find select
